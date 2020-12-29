@@ -34,13 +34,24 @@ include('header.php');
             <th>Action</th>
         </thead>
         <tbody class="text-center ">
+            <?php
+            
+            $sql = "SELECT * FROM `hostel` order by hid desc";
+            $data = $conn->query($sql);
+            while($row= $data->fetch_assoc())
+            {
+            $singr = $row["hrSingle"]-$row["hSoccu"];
+            $doublr = $row["hrDouble"]-$row["hDoccu"];
+            
+            echo '
             <tr>
-                <td>JBH1</td>
-                <td>600</td>
-                <td>30/30</td>
-                <td>60</td>
-                <td>5/5</td>
-                <td>555</td>
+                <td>'.$row["hname"].'</td>
+                <td>'.$row["hcap"].'</td>
+                <td>'.$row["hrSingle"].'/'.$row["hrDouble"].'</td>
+                <td>'.$row["havlroom"].'</td>
+                <td>'.$singr.'/'.$doublr.'</td>
+                <td>'.$row["havalstud"].'</td>
+                
                 <td>
                     <form action="" method="post">
                         <button class="btn btn-info"><i class="fas fa-edit "></i></button>
@@ -48,34 +59,10 @@ include('header.php');
                     </form>
                 </td>
             </tr>
-            <tr>
-                <td>JBH2</td>
-                <td>600</td>
-                <td>30/30</td>
-                <td>60</td>
-                <td>0/10</td>
-                <td>350</td>
-                <td>
-                    <form action="" method="post">
-                        <button class="btn btn-info"><i class="fas fa-edit "></i></button>
-                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                    </form>
-                </td>
-            </tr>
-            <tr>
-                <td>JBH3</td>
-                <td>600</td>
-                <td>30/30</td>
-                <td>60</td>
-                <td>10/5</td>
-                <td>590</td>
-                <td>
-                    <form action="" method="post">
-                        <button class="btn btn-info"><i class="fas fa-edit "></i></button>
-                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                    </form>
-                </td>
-            </tr>
+            ';
+            }
+            ?>
+            
         </tbody>
     </table>
 

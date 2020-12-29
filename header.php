@@ -1,3 +1,6 @@
+<?php 
+include('database.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,15 +15,16 @@
     <title>Hostel Management</title>
 
     <!-- Custom fonts for this template-->
-    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
         
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../css/custom.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -45,7 +49,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link  <?php if(PAGE == 'dashboard') { echo 'active'; } ?>" href="dashboard.html">
+                <a class="nav-link  <?php if(PAGE == 'dashboard') { echo 'active'; } ?>" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -72,10 +76,17 @@
             </li>
             <!-- nav Item - Assign students -->
             <li class="nav-item">
-                <a class="nav-link  <?php if(PAGE == 'assignstudent') { echo 'active'; } ?>" href="a.php">
+                <a class="nav-link  <?php if(PAGE == 'assignstudent') { echo 'active'; } ?>" href="assign.php">
                     <i class="fas fa-fw fa-user-plus"></i>
                     <span>Assign Students</span></a>
-            </li><!-- nav Item -  rooms -->
+            </li>
+             <!-- nav Item - HOSTELL FEE students -->
+             <li class="nav-item">
+                    <a class="nav-link <?php if(PAGE == 'payment') { echo 'active'; } ?>" href="payment.php">
+                        <i class="fas fa-fw fa-money-check-alt"></i>
+                        <span>Fees</span></a>
+                </li>
+            <!-- nav Item -  rooms -->
             <li class="nav-item">
                 <a class="nav-link  <?php if(PAGE == 'room') { echo 'active'; } ?>" href="room.php">
                     <i class="fas fa-fw fa-bed"></i>
