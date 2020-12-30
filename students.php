@@ -42,9 +42,7 @@ include('header.php');
             </thead>
             <tbody>
             <?php
-            // <button class="btn btn-primary" value="">
-                // 
-                // </button>
+            
             $sql = "SELECT * FROM `student`";
             $data = $conn->query($sql);
            
@@ -81,7 +79,7 @@ include('header.php');
             if($row["Paymentdone"] == $row["TotalPayment"]){
                 echo '
                 <td>
-                        <form action="edithostel.php" method="post" class="d-inline">
+                        <form action="studentdetails.php" method="post" class="d-inline">
                         <input type="hidden" name="id" value='.$row["sid"].'>
                             <button class="btn btn-success">
                             <i class="fas fa-info-circle "></i>
@@ -90,7 +88,7 @@ include('header.php');
     
                         <form action="" method="post" class="d-inline">
                             <input type="hidden" name="id" value='.$row["sid"].'>
-                            <button class="btn btn-danger" name="delet">
+                            <button class="btn btn-danger" name="delete">
                             <i class="fas fa-trash"></i>
                             </button>
                         </form>
@@ -107,7 +105,7 @@ include('header.php');
                             <i class="fas fa-money-bill-alt "></i>
                             </button>
                         </form>
-                        <form action="edithostel.php" method="post" class="d-inline">
+                        <form action="studentdetails.php" method="post" class="d-inline">
                         <input type="hidden" name="id" value='.$row["sid"].'>
                             <button class="btn btn-success">
                             <i class="fas fa-info-circle "></i>
@@ -116,7 +114,7 @@ include('header.php');
     
                         <form action="" method="post" class="d-inline">
                             <input type="hidden" name="id" value='.$row["sid"].'>
-                            <button class="btn btn-danger" name="delet">
+                            <button class="btn btn-danger" name="delete">
                             <i class="fas fa-trash"></i>
                             </button>
                         </form>
@@ -126,6 +124,18 @@ include('header.php');
             }
             
         }
+
+
+        if(isset($_REQUEST['delete'])){
+            $sql = "DELETE FROM `student` WHERE sid = {$_REQUEST['id']} ";
+            if($conn->query($sql) === TRUE){
+                echo '<meta http-equiv="refresh" content= "0;URL=?deleted" />';
+                }else {
+
+                  echo "Unable to Delete Data";
+                }
+        }
+
             ?>
                
             </tbody>

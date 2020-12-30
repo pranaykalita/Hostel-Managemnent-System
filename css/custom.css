@@ -53,3 +53,32 @@
 #student_table{
     width: 100%;
 }
+
+
+/* student detials */
+.left,.right,.cright{
+    width: 100%;
+
+}
+
+
+#userimg{
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.leftt{
+    background: red;
+}
+.rightt{
+    background: rgb(183, 0, 255);
+}
+.leftt,.rightt{
+    width: 100%;
+
+}
