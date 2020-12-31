@@ -1,5 +1,7 @@
 <?php 
+error_reporting(0);
 include('database.php');
+define('simg' , "img/student_img/");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,6 +70,12 @@ include('database.php');
                     <span>Hostels</span></a>
             </li>
 
+            <!-- nav Item -  rooms -->
+            <li class="nav-item">
+                <a class="nav-link  <?php if(PAGE == 'room') { echo 'active'; } ?>" href="room.php">
+                    <i class="fas fa-fw fa-bed"></i>
+                    <span>Rooms</span></a>
+            </li>
             <!-- Nav Item - student -->
             <li class="nav-item">
                 <a class="nav-link  <?php if(PAGE == 'student') { echo 'active'; } ?>" href="students.php">
@@ -81,17 +89,12 @@ include('database.php');
                     <span>Assign Students</span></a>
             </li>
              <!-- nav Item - HOSTELL FEE students -->
-             <li class="nav-item">
+            <li class="nav-item">
                     <a class="nav-link <?php if(PAGE == 'payment') { echo 'active'; } ?>" href="payment.php">
                         <i class="fas fa-fw fa-money-check-alt"></i>
                         <span>Fees</span></a>
-                </li>
-            <!-- nav Item -  rooms -->
-            <li class="nav-item">
-                <a class="nav-link  <?php if(PAGE == 'room') { echo 'active'; } ?>" href="room.php">
-                    <i class="fas fa-fw fa-bed"></i>
-                    <span>Rooms</span></a>
             </li>
+             
             <!-- nav Item - Course -->
             <li class="nav-item">
                 <a class="nav-link  <?php if(PAGE == 'course') { echo 'active'; } ?>" href="course.php">

@@ -63,9 +63,17 @@ $(function(){
        var value1 = parseFloat($('#Sroom').val()) || 0;
        var value2 = parseFloat($('#Droom').val()) || 0;
        $('#Troom').val(value1 + value2);
-    });
+    }).ready(function(){
+        var value1 = parseFloat($('#Sroom').val()) || 0;
+        var value2 = parseFloat($('#Droom').val()) || 0;
+        $('#Troom').val(value1 + value2);
+     });
 
     $('#Sroom, #Droom').keyup(function(){
+        var s1 = parseFloat($('#Sroom').val()) || 0;
+        var s2 = parseFloat($('#Droom').val()) || 0;
+        $('#capacity').val(s1+(s2*2))
+    }).ready(function(){
         var s1 = parseFloat($('#Sroom').val()) || 0;
         var s2 = parseFloat($('#Droom').val()) || 0;
         $('#capacity').val(s1+(s2*2))

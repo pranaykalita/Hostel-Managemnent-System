@@ -55,8 +55,8 @@ include('header.php');
                 <td>
                     <form action="edithostel.php" method="post" class="d-inline">
                     <input type="hidden" name="id" value='.$row["hid"].'>
-                        <button class="btn btn-info">
-                        <i class="fas fa-edit "></i>
+                        <button class="btn btn-info"  name="edit">
+                        <i class="fas fa-edit"></i>
                         </button>
                     </form>
 

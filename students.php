@@ -14,9 +14,9 @@ include('header.php');
     <!-- add stud -->
     <div class="row mb-3">
         
-            <a href="assign.php"  class="btn btn-success">
+            <a href="room.php"  class="btn btn-success">
                 <i class="fas fa-plus-square"></i>
-                Add student</a>
+                Assign Student</a>
         
     </div>
 
@@ -28,13 +28,12 @@ include('header.php');
         <table class="table table-striped myTable"  width="100%" cellspacing="0" style="font-size: 13px;" >
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">NAME</th>
                     <th scope="col">ROOM</th>
                     <th scope="col">Hostel</th>
-                    <th scope="col">years</th>
                     <th scope="col">COURSE</th>
                     <th scope="col">Payment Done</th>
+                    <th scope="col">Payment Pending</th>
                     <th scope="col">Payment total</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
@@ -45,27 +44,23 @@ include('header.php');
             
             $sql = "SELECT * FROM `student`";
             $data = $conn->query($sql);
-           
-            while($row= $data->fetch_assoc()){
-            $pendingpayment = $row["TotalPayment"]-$row["Paymentdone"];
-              // calculate staying month  
-            $date1 = $row["Bfrm"];
-            $date2 = $row["Bto"];
-            $d1=new DateTime($date2); 
-            $d2=new DateTime($date1);                                  
-            $Months = $d2->diff($d1); 
 
-            $month = (($Months->y) * 12) + ($Months->m) + 1;
+            while($row= $data->fetch_assoc()){
+
+
+
+            $paymentpendin = $row["TotalPayment"]-$row["Paymentdone"];
+              // calculate staying month  
+            
             echo '
             <tr>
-            <td>'.$row["sid"].'</td>
             <td>'.$row["sname"].'</td>
             <td>'.$row["RoomNo"].'</td>
-            <td>'.$row["hname"].'</td>
-            <td>'.$month.'</td>
+            <td name="hname">'.$row["hname"].'</td>
             <td>'.$row["course"].'</td>
-            <td>₹100</td>
-            <td>₹'.$row["TotalPayment"].'</td>
+            <td class="text-success">₹ '.$row["Paymentdone"].'</td>
+            <td class="text-danger">₹ '.$paymentpendin.'</td>
+            <td>₹ '.$row["TotalPayment"].'</td>
             <td>';
 
             if($row["Paymentdone"] == $row["TotalPayment"])
@@ -81,14 +76,14 @@ include('header.php');
                 <td>
                         <form action="studentdetails.php" method="post" class="d-inline">
                         <input type="hidden" name="id" value='.$row["sid"].'>
-                            <button class="btn btn-success">
-                            <i class="fas fa-info-circle "></i>
-                            </button>
+                        <button class="btn btn-success" type="submit" name="view">
+                        <i class="fas fa-info-circle "></i>
+                        </button>
                         </form>
     
                         <form action="" method="post" class="d-inline">
                             <input type="hidden" name="id" value='.$row["sid"].'>
-                            <button class="btn btn-danger" name="delete">
+                            <button class="btn btn-danger" name="delete" type="submit">
                             <i class="fas fa-trash"></i>
                             </button>
                         </form>
@@ -101,20 +96,20 @@ include('header.php');
                 <td>
                         <form action="payment.php" method="post" class="d-inline">
                         <input type="hidden" name="id" value='.$row["sid"].'>
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" type="submit" name="pay">
                             <i class="fas fa-money-bill-alt "></i>
                             </button>
                         </form>
                         <form action="studentdetails.php" method="post" class="d-inline">
                         <input type="hidden" name="id" value='.$row["sid"].'>
-                            <button class="btn btn-success">
+                            <button class="btn btn-success" type="submit" name="view">
                             <i class="fas fa-info-circle "></i>
                             </button>
                         </form>
     
                         <form action="" method="post" class="d-inline">
                             <input type="hidden" name="id" value='.$row["sid"].'>
-                            <button class="btn btn-danger" name="delete">
+                            <button class="btn btn-danger" name="delete" type="submit">
                             <i class="fas fa-trash"></i>
                             </button>
                         </form>
@@ -123,19 +118,57 @@ include('header.php');
                 ';
             }
             
-        }
+        };
+        
+        // delet and check double room or single room clear
+       
 
+        if(isset($_REQUEST['delete']))
+        {
+           
+          
 
-        if(isset($_REQUEST['delete'])){
-            $sql = "DELETE FROM `student` WHERE sid = {$_REQUEST['id']} ";
-            if($conn->query($sql) === TRUE){
-                echo '<meta http-equiv="refresh" content= "0;URL=?deleted" />';
-                }else {
+            $sql = "SELECT * from student where sid = '{$_REQUEST['id']}'";
+            $retcon = $conn->query($sql);
+            $roomdata = mysqli_fetch_assoc($retcon);
+            $hname1 = $roomdata['hname'];
+            $rmno = $roomdata['RoomNo'];
 
-                  echo "Unable to Delete Data";
+            $sqlD = "DELETE FROM `student` where sid = '{$_REQUEST['id']}'";
+            $conn->query($sqlD);
+
+               
+           
+            
+           if(($roomdata['RoomTyp'] == "Double")){
+                
+                $che_sql = "SELECT * FROM `student` where RoomNo = '{$rmno}' and hname = '{$hname1}'";
+                $cda = $conn->query($che_sql);
+                $retda = mysqli_num_rows($cda);
+
+                if($retda == 2){
+                    $sql = "UPDATE `room` SET `status`= '1' WHERE hname = '{$hname1}' and rno = '{$rmno}' ";
+                    $conn->query($sql);
                 }
-        }
+                else if($retda == 1){
+                    $sql = "UPDATE `room` SET `status`= '2' WHERE hname = '{$hname1}' and rno = '{$rmno}' ";
+                    $conn->query($sql);
+                }
+                else if($retda == 0){
+                    $sql = "UPDATE `room` SET `status`= '0' WHERE hname = '{$hname1}' and rno = '{$rmno}' ";
+                    $conn->query($sql);
+                }
+            }
+            else if(($roomdata['RoomTyp'] == "Single")){
 
+                $sqlUp = "UPDATE `room` SET `STATUS`= '0' WHERE hname = '{$hname1}' and rno = '{$rmno}' ";
+                $conn->query($sqlUp);
+
+            }
+            echo '<meta http-equiv="refresh" content= "0;URL=?deleted" />'; 
+            
+         }
+        
             ?>
                
             </tbody>

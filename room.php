@@ -1,5 +1,5 @@
 
-     <?php
+<?php
 define('TITLE', 'Room');
 define('PAGE', 'room');
 include('header.php'); 
@@ -15,9 +15,9 @@ include('header.php');
                         <!-- add stud -->
                         <div class="row mb-3">
 
-                            <button type="button" class="btn btn-success">
+                            <a href="addroom.php" type="button" class="btn btn-success">
                                 <i class="fas fa-plus-square"></i>
-                                Add Rooms</button>
+                                Add Rooms</a>
 
                         </div>
 
@@ -28,6 +28,7 @@ include('header.php');
                                     <th>Hostel Name</th>
                                     <th>ROOM No</th>
                                     <th>Room Type</th>
+                                    <th>price pm</th>
                                     <th>status</th>
                                 </thead>
                                 <tbody>
@@ -43,18 +44,66 @@ include('header.php');
                                     <tr>
                                         <td>'.$row["hname"].'</td>
                                         <td>'.$row["rno"].'</td>
-                                        <td>'.$row["rtype"].'</td>';
+                                        <td>'.$row["rtype"].'</td>
+                                        <td>₹ '.$row["rprice"].'</td>';
                                 if($row["status"] == 0)
                                 {
-                                    echo '<td><span class="text-success">Available</span></td>';
+                                    echo '
+                                    <td >
+                                    <form action="assign.php" method="POST" class="d-inline mx-2">
+                                    <input type="hidden" name="id" value='. $row["rid"] .'>
+				                    <button type="submit" class="btn btn-info" name="asgn" value="asgn">
+                                    <i class="fas fa-plus-square"></i> Assign
+                                    </form>
+
+                                    <form action="" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value='.$row["rid"].'>
+                                    <button class="btn btn-danger" name="delete" type="submit">
+                                    <i class="fas fa-trash"></i>
+                                    </button>
+                                    </form>
+
+                                    </td>';
                                 }
                                 else if($row["status"]==1)
                                 {
-                                    echo ' <td><div class="text-danger">occupied</div></td>';
+                                    echo ' 
+                                    <td >
+                                    <div class="text text-danger">OCCUPIED</div>
+                                    </td>';
                                 }
+                                else if($row["status"]==2)
+                                {
+                                    echo ' 
+                                    <td>
+                                    <form action="assign.php" method="POST" class="d-inline mx-2">
+                                    <input type="hidden" name="id" value='. $row["rid"] .'>
+				                    <button type="submit" class="btn btn-info" name="asgn" value="asgn">
+                                    <i class="fas fa-plus-square"></i> Assign
+                                    </form>
+                                    </td>';
+                                }
+                                }
+                                echo '</tr>';
 
+
+
+
+
+
+
+
+
+
+                                if(isset($_REQUEST['delete']))
+                                {
+            
+                                    $sql = "DELETE FROM `room` WHERE rid = {$_REQUEST['id']} ";
+                                    if($conn->query($sql) === TRUE)
+                                    {
+                                        echo '<meta http-equiv="refresh" content= "0;URL=?deleted" />';
+                                    }
                                 }
-                                echo '</tr>'
                                     ?>
                                 </tbody>
                             </table>

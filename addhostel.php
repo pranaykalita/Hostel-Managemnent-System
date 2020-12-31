@@ -24,59 +24,79 @@ if(isset($_REQUEST['addhostel'])){
         }
     }
 }
-?> 
+?>
 
- <!-- Begin Page Content -->
- <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Add New Hostel</h1>
-</div>
-
-<!-- add stud -->
-<div class="text-center font-weight-bold">
-    <p class="align-center text-danger"><?php echo $msg; ?></p>
-    
-</div>
-
-<div class="card rounded shadow m-2">
-    <form class="p-4" action="" method="post">
-       <div class="form-group">
-           <label for="name">Hostel Name</label>
-           <input type="text"  class="form-control" name="name" id="name">
-       </div>
-       <div class="form-group">
-           <label for="name">Single Room</label>
-           <input type="number"  class="form-control" name="Sroom" id="Sroom">
-       </div>
-       <div class="form-group">
-           <label for="name">Double Room</label>
-           <input type="number"  class="form-control" name="Droom" id="Droom">
-       </div>
-       <div class="form-group">
-           <label for="name">Total Room</label>
-           <input type="number"  class="form-control" name="Troom" id="Troom" readonly>
-       </div>
-       <div class="form-group">
-           <label for="name">Hoste Student capacity</label>
-           <input type="number"  class="form-control" name="capacity" id="capacity" readonly>
-       </div>
-       <div class="form-group">
-           <label for="name">Single Room Price(pm)</label>
-           <input type="text"  class="form-control" name="SrP" id="SrP">
-       </div>
-       <div class="form-group">
-           <label for="name">Double Room Price(pm)</label>
-           <input type="text"  class="form-control" name="DrP" id="DrP">
-       </div>
-       
-       <div class="text-center">
-       <input class="btn align-center btn-success" type="submit" value="ADD HOSTEL" name="addhostel"></input>
-       <a href="hostel.php" class="btn align-center btn-danger">Close</a>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add New Hostel</h1>
     </div>
-    </form>
-</div>
+    <div class="row mb-4">
+        <div class="col">
+            <a href="hostel.php" class="btn btn-danger ">
+                <i class="fas fa-long-arrow-alt-left"></i>
+                Back</a>
+        </div>
+    </div>
 
+    <!-- add stud -->
+    <div class="text-center font-weight-bold">
+        <p class="align-center text-danger"><?php echo $msg; ?></p>
 
-<?php include('footer.php')?>
+    </div>
+
+    <div class="card rounded shadow m-2">
+        <form class="p-4" action="" method="post">
+            <div class="form-group">
+                <label for="name">Hostel Name</label>
+                <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="name">Single Room</label>
+                <input type="number" class="form-control" name="Sroom" id="Sroom">
+            </div>
+            <div class="form-group">
+                <label for="name">Double Room</label>
+                <input type="number" class="form-control" name="Droom" id="Droom">
+            </div>
+            <div class="form-group">
+                <label for="name">Total Room</label>
+                <input
+                    type="number"
+                    class="form-control"
+                    name="Troom"
+                    id="Troom"
+                    readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="name">Hoste Student capacity</label>
+                <input
+                    type="number"
+                    class="form-control"
+                    name="capacity"
+                    id="capacity"
+                    readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="name">Single Room Price(pm)</label>
+                <input type="text" class="form-control" name="SrP" id="SrP">
+            </div>
+            <div class="form-group">
+                <label for="name">Double Room Price(pm)</label>
+                <input type="text" class="form-control" name="DrP" id="DrP">
+            </div>
+
+            <div class="text-center">
+                <input
+                    class="btn align-center btn-success"
+                    type="submit"
+                    value="ADD HOSTEL"
+                    name="addhostel"></input>
+                <a href="hostel.php" class="btn align-center btn-danger">Close</a>
+            </div>
+        </form>
+    </div>
+
+    <?php include('footer.php')?>
