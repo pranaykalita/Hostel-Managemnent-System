@@ -82,12 +82,6 @@ define('simg' , "img/student_img/");
                     <i class="fas fa-fw fa-user-friends"></i>
                     <span>Students</span></a>
             </li>
-            <!-- nav Item - Assign students -->
-            <li class="nav-item">
-                <a class="nav-link  <?php if(PAGE == 'assignstudent') { echo 'active'; } ?>" href="assign.php">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <span>Assign Students</span></a>
-            </li>
              <!-- nav Item - HOSTELL FEE students -->
             <li class="nav-item">
                     <a class="nav-link <?php if(PAGE == 'payment') { echo 'active'; } ?>" href="payment.php">
@@ -100,6 +94,12 @@ define('simg' , "img/student_img/");
                 <a class="nav-link  <?php if(PAGE == 'course') { echo 'active'; } ?>" href="course.php">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Course</span></a>
+            </li>
+            <!-- nav Item - Assign students -->
+            <li class="nav-item">
+                <a class="nav-link  <?php if(PAGE == 'assignstudent') { echo 'active'; } ?>" href="assign.php">
+                    <i class="fas fa-fw fa-user-plus"></i>
+                    <span>Assign Students</span></a>
             </li>
             <!-- nav Item - settings -->
             <li class="nav-item">
@@ -114,7 +114,6 @@ define('simg' , "img/student_img/");
                     <span>Logout</span></a>
             </li>
             
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
