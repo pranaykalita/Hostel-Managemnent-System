@@ -71,7 +71,7 @@ if(isset($_REQUEST['addhostel'])){
                     readonly="readonly">
             </div>
             <div class="form-group">
-                <label for="name">Hoste Student capacity</label>
+                <label for="name">Hostel Student capacity</label>
                 <input
                     type="number"
                     class="form-control"
