@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <?php
+session_start();
+if(!isset($_SESSION["username"])){
+
+    header("LOCATION: /index.php");
+
+}
 include('database.php');
 
 if(isset($_POST['bill']))
@@ -18,6 +24,8 @@ if(isset($_POST['bill']))
     $stdtotpaymnt = $row["TotalPayment"];
     $stdpaymntdone = $row["Paymentdone"];
     $stdcurrpaymnt = $row["Currentpayment"];
+    $date = $row["Cpaydate"];
+    $time = $row["Cpaytime"];
 
     }
 }
@@ -65,7 +73,10 @@ if(isset($_POST['bill']))
                         <div class="card-body p-0 ">
                             <div class="row py-2 px-3">
                                 <div class="col-md-6">
-                                    <p class="text-dark font-weight-bold">L & C Hostels</p>
+                                <img src="img/logo.png" style="width: 150px; height:60px;">
+                                </div>
+                                <div class="col-md-6 text-right">
+                                <p class="text-dark font-weight-bold">Date: <?php echo $date; ?></p>
                                 </div>
                             </div>
 
@@ -75,11 +86,13 @@ if(isset($_POST['bill']))
                                 <div class="col-md-6">
                                     <p class="font-weight-bold mb-4"><?php echo  date("Y/m/d"); ?></p>
                                     <p class="font-weight-bold mb-4">Student Information</p>
-                                    <p class="mb-1 ">student ID: <?php echo $stdid; ?></p>
-                                    <p class="mb-1">Name: <?php echo $stdname; ?></p>
+                                    <p class="mb-1 ">student ID: <span class="font-weight-bold"><?php echo $stdid; ?></span></p>
+                                    <p class="mb-1">Name: <span class="font-weight-bold"><?php echo $stdname; ?></span></p>
                                     <p class="mb-1 ">Roll No: <?php echo $stdroll; ?></p>
                                     <p class="mb-1 ">Hostel Name: <?php echo $stdhname; ?></p>
                                     <p class="mb-1 ">Room No: <?php echo $stdroomno; ?></p>
+                                    <p class="mb-1 ">Last payment date: <?php echo $date; ?></p>
+                                    <p class="mb-1 ">Last payment time: <?php echo $time; ?></p>
                             
 
                                 </div>
@@ -93,7 +106,7 @@ if(isset($_POST['bill']))
                                        <thead>
                                                 <th>Total Payment</th>
                                                 <th>Payment Received </th>
-                                                <th>Current Received</th>
+                                                <th>last Payment</th>
                                         </thead>
                                         <tbody>
                                             <tr>

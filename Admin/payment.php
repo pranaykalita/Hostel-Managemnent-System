@@ -2,8 +2,12 @@
 define('TITLE', 'Payment');
 define('PAGE', 'payment');
 include('header.php'); 
-$msg = '';
+$msg = "";
+// set current time
 
+$timezone = date_default_timezone_set("Asia/kolkata");
+$time = date("h:i:sa");
+$date = date("Y/m/d");
 
 
 if(isset($_REQUEST['pyment'])){
@@ -25,10 +29,14 @@ if(isset($_REQUEST['pyment'])){
         $payment = $_REQUEST['cpay'];
         $final = $curentdone + $payment;
 
-        $sql = "UPDATE `student` SET `Paymentdone`='{$final}' WHERE sid = '{$id}'";
+        $sql = "UPDATE `student` SET `Paymentdone`='{$final}' ,`Cpaydate`='{$date}',`Cpaytime`='{$time}' WHERE sid = '{$id}'";
         $data = $conn->query($sql);
         $msg = "Payment Succesfull";
-    
+        $red = "<script>
+        setTimeout(function(){
+           window.location.href = 'students.php';
+        }, 2000);
+        </script>";
     }
     
 }
@@ -43,7 +51,13 @@ if(isset($_REQUEST['pyment'])){
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Students Fees</h1>
 </div>
-
+<div class="row mb-4">
+        <div class="col">
+            <a href="students.php" class="btn btn-danger ">
+                <i class="fas fa-long-arrow-alt-left"></i>
+                Back</a>
+        </div>
+    </div>
 <!-- add stud -->
 <div class="text-center font-weight-bold">
     <p class="align-center text-danger"><?php echo $msg;?></p>
@@ -89,15 +103,19 @@ if(isset($_REQUEST['pyment'])){
        </div>
        <div class="form-group">
            <label for="name">Total Payment Recieved </label>
-           <input type="text"  class="form-control" name="pdone" readonly value="<?php if(isset($row['Paymentdone'])) {echo $row['Paymentdone']; }?>">
+           <input type="text"  class="form-control" name="pdone" id="rfee" readonly value="<?php if(isset($row['Paymentdone'])) {echo $row['Paymentdone']; }?>">
        </div>
        <div class="form-group">
            <label for="name">Total fee</label>
-           <input type="text"  class="form-control" name="name" id="name" readonly value="<?php if(isset($row['TotalPayment'])) {echo $row['TotalPayment']; }?>">
+           <input type="text"  class="form-control" name="name" id="tfee" readonly value="<?php if(isset($row['TotalPayment'])) {echo $row['TotalPayment']; }?>">
+       </div>
+       <div class="form-group">
+           <label for="name">pending fee</label>
+           <input type="number"  class="form-control" name="pfee" id="pfee" readonly >
        </div>
        <div class="form-group">
         <label for="name">Pending fee [Pay now]</label>
-        <input type="text"  class="form-control" name="cpay">
+        <input type="text"  class="form-control" name="cpay" required>
     </div>
        <div class="text-center">
        <input class="btn align-center btn-success" value="PAY" type="submit" name="pyment" ></input>
@@ -105,5 +123,6 @@ if(isset($_REQUEST['pyment'])){
     </div>
     </form>
 </div>
+<?php echo $red; ?>
 
 <?php include('footer.php') ?>

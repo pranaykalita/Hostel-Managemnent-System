@@ -75,8 +75,11 @@ if(isset($_REQUEST['addadmin'])){
                 <td>'.$row["a_name"].'</td>
                 <td>'.$row["a_email"].'</td>';
 
-                if($row['default_admin'] == '0'){
-                echo ' 
+                if(($row['default_admin'] == '1') || ($_SESSION["username"] == $row["a_name"]) ){
+                    echo '<td>Defaul/Current</td>';
+                }else{
+                    
+                    echo ' 
                 <td>
                 <form action="" method="post" class="d-inline">
                 <input type="hidden" name="id" value='.$row["a_login_id"].'>
@@ -84,8 +87,6 @@ if(isset($_REQUEST['addadmin'])){
                 <i class="fas fa-trash "></i>
                 </button>
                 </td>';
-                }else{
-                    echo '<td>Default</td>';
                 }
                 echo '</tr>';
         }

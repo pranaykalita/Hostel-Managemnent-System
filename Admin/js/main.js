@@ -87,3 +87,16 @@ $(function(){
         $('#capacity').val(s1+(s2*2))
     });
  });
+
+ $(function(){
+    $('#tfee, #rfee').keyup(function(){
+       var value1 = parseFloat($('#tfee').val()) || 0;
+       var value2 = parseFloat($('#rfee').val()) || 0;
+       $('#pfee').val(value1 - value2);
+    }).ready(function(){
+        var value1 = parseFloat($('#tfee').val()) || 0;
+        var value2 = parseFloat($('#rfee').val()) || 0;
+        $('#pfee').val(value1 - value2);
+     });
+
+ });
