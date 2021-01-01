@@ -1,7 +1,6 @@
 <?php
 define('TITLE', 'Students');
 define('PAGE', 'student');
-include('header.php');
 include('include/header.php'); 
 $msg ="";
 
