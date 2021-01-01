@@ -56,6 +56,14 @@ $(document).ready(function() {
         "scrollY": true
     });
 } );
+// dashboard tables
+$(document).ready(function() {
+    $('.roomdetail').DataTable({
+        "scrollY": 200,
+        "scrollY": true,
+        lengthMenu:[[4],[4]]
+    });
+} );
 
 // calculate total room in hostel
 $(function(){
