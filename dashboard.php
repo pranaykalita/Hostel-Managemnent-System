@@ -176,7 +176,7 @@ $davl = $row[0];
                 $row = mysqli_fetch_assoc($result);
                 $tpayment = $row['tpay']+0;
                 //  total done
-                $paymentdone = $row['Paymentdone']+0;
+                $paymentdone = $row['payd']+0;
                 ?>
                 <!-- Card Body -->
                 <div class="card-body">

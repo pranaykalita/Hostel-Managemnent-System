@@ -25,7 +25,7 @@ include('header.php');
 
         <!-- table -->
     
-        <table class="table table-striped myTable"  width="100%" cellspacing="0" style="font-size: 13px;" >
+        <table class="table table-striped myTable"  width="100%" cellspacing="0" style="font-size: 12px;" >
             <thead>
                 <tr>
                     <th scope="col">NAME</th>

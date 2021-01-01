@@ -46,7 +46,7 @@ if(isset($_POST['bill']))
 
                     <div class="col-md-12 text-right">
                         <a href="dashboard.php" value="" class="btn btn-success float-left"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
-                        <button class="btn btn-primary" id="download"><i class="fa fa-download" aria-hidden="true"></i> Download</button>
+                        <button class="btn btn-primary mx-2 float-left" id="download"><i class="fa fa-download" aria-hidden="true"></i> Download</button>
                         
                     </div>
                    
@@ -60,7 +60,7 @@ if(isset($_POST['bill']))
 
             <div class="row">
 
-                <div class="col-12">
+                <div class="col-6">
                     <div class="card">
                         <div class="card-body p-0 ">
                             <div class="row py-2 px-3">

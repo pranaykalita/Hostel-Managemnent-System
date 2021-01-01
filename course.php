@@ -22,7 +22,7 @@ include('header.php');
     <table class="table text-center courseTable">
         <thead>
             <th>Course</th>
-            <th>Year</th>
+            <th>Course Duration(year)</th>
             <th>action</th>
         </thead>
         <tbody class="text-center">
