@@ -39,7 +39,7 @@ define('simg' , "img/student_img/");
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
                 <div class="sidebar-brand-icon ">
                     <i class="fas fa-building"></i>
                 </div>
@@ -76,31 +76,19 @@ define('simg' , "img/student_img/");
                     <i class="fas fa-fw fa-bed"></i>
                     <span>Rooms</span></a>
             </li>
-            <!-- Nav Item - student -->
-            <li class="nav-item">
-                <a class="nav-link  <?php if(PAGE == 'student') { echo 'active'; } ?>" href="students.php">
-                    <i class="fas fa-fw fa-user-friends"></i>
-                    <span>Students</span></a>
-            </li>
-             <!-- nav Item - HOSTELL FEE students -->
-            <li class="nav-item">
-                    <a class="nav-link <?php if(PAGE == 'payment') { echo 'active'; } ?>" href="payment.php">
-                        <i class="fas fa-fw fa-money-check-alt"></i>
-                        <span>Fees</span></a>
-            </li>
-             
             <!-- nav Item - Course -->
             <li class="nav-item">
                 <a class="nav-link  <?php if(PAGE == 'course') { echo 'active'; } ?>" href="course.php">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Course</span></a>
             </li>
-            <!-- nav Item - Assign students -->
+            <!-- Nav Item - student -->
             <li class="nav-item">
-                <a class="nav-link  <?php if(PAGE == 'assignstudent') { echo 'active'; } ?>" href="assign.php">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <span>Assign Students</span></a>
+                <a class="nav-link  <?php if(PAGE == 'student') { echo 'active'; } ?>" href="students.php">
+                    <i class="fas fa-fw fa-user-friends"></i>
+                    <span>Students</span></a>
             </li>
+            
             <!-- nav Item - settings -->
             <li class="nav-item">
                 <a class="nav-link  <?php if(PAGE == 'settings') { echo 'active'; } ?>" href="settings.php">
