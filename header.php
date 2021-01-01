@@ -109,7 +109,7 @@ define('simg' , "img/student_img/");
             </li>
             <!-- nav Item - logout -->
             <li class="nav-item">
-                <a class="nav-link  <?php if(PAGE == 'logout') { echo 'active'; } ?>" href="Logout.php">
+                <a class="nav-link  <?php if(PAGE == 'logout') { echo 'active'; } ?>" href="logout.php">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Logout</span></a>
             </li>
