@@ -137,7 +137,7 @@ if(isset($_REQUEST['assigns']))
                     name="Sid"
                     id="Sid"
                     value="<?php if(isset($row['sid'])) {echo $row['sid']; }?>"
-                    readonly="readonly">
+                    readonly>
             </div>
             <div class="form-group">
                 <label for="name">Name</label>

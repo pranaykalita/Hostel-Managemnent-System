@@ -2,6 +2,38 @@
 define('TITLE', 'Payment');
 define('PAGE', 'payment');
 include('header.php'); 
+$msg = '';
+
+
+
+if(isset($_REQUEST['pyment'])){
+    
+    $sql = "SELECT `Paymentdone` FROM student WHERE sid = '{$_REQUEST["sid"]}'";
+    $data = $conn->query($sql);
+    $row = $data->fetch_assoc();
+    $curentdone = $row['Paymentdone'];
+
+   
+    if((isset($_REQUEST["cpay"]) == ''))
+    {
+        $msg = "enter a valid price";
+    }
+    else 
+    {
+       
+        $id = $_REQUEST['sid'];
+        $payment = $_REQUEST['cpay'];
+        $final = $curentdone + $payment;
+
+        $sql = "UPDATE `student` SET `Paymentdone`='{$final}' WHERE sid = '{$id}'";
+        $data = $conn->query($sql);
+        $msg = "Payment Succesfull";
+    
+    }
+    
+}
+
+
 ?> 
 
   <!-- Begin Page Content -->
@@ -14,62 +46,62 @@ include('header.php');
 
 <!-- add stud -->
 <div class="text-center font-weight-bold">
-    <p class="align-center text-danger">Fees Collected succesfully</p>
+    <p class="align-center text-danger"><?php echo $msg;?></p>
     
 </div>
+<?php 
+    if(isset($_REQUEST['pay'])){
+    $sql = "SELECT * FROM student WHERE sid = {$_REQUEST['id']}";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    }
+?>
 
 <div class="card rounded shadow m-2">
     <form class="p-4" action="" method="post">
        <div class="form-group">
+           <label for="name">SID</label>
+           <input type="text"  class="form-control" name="sid" id="sid"
+           value="<?php if(isset($row['sid'])) {echo $row['sid']; }?>" readonly>
+       </div>
+       <div class="form-group">
            <label for="name">Name</label>
-           <input type="text"  class="form-control" name="name" id="name">
+           <input type="text"  class="form-control" name="name" id="name" value="<?php if(isset($row['sname'])) {echo $row['sname']; }?>" readonly>
        </div>
        <div class="form-group">
            <label for="name">Course</label>
-           <select class="form-control" name="" id="">
-            <option value="">ENG</option>
-            <option value="">CHEM</option>
-            <option value="">MATH</option>
-            <option value="">IT</option>
-        </select>
+           <input class="form-control" name="course" value= "<?php if(isset($row['course'])) {echo $row['course']; }?>" readonly >
+            
        </div>
        <div class="form-group">
            <label for="name">Hostel</label>
-           <select class="form-control" name="" id="">
-               <option value="">HB1</option>
-               <option value="">HB2</option>
-               <option value="">HB3</option>
-               <option value="">HB4</option>
-           </select>
+           <input class="form-control" name="hostelname" value = "<?php if(isset($row['hname'])) {echo $row['hname']; }?>" readonly>
        </div>
        <div class="form-group">
            <label for="name">Room Type</label>
-           <select class="form-control" name="" id="">
-               <option value="">single</option>
-               <option value="">Double</option>
-            </select>
+           <input class="form-control" name="roomtype" value = "<?php if(isset($row['RoomTyp'])) {echo $row['RoomTyp']; }?>" readonly>
+    
        </div>
        <div class="form-group">
            <label for="name">Room No</label>
-           <select name="" class="form-control" id="">
-               <option value="">1</option>
-               <option value="">2</option>
-               <option value="">3</option>
-               <option value="">4</option>
-               <option value="">5</option>
-           </select>
+           <input name="roomname" class="form-control" value = "<?php if(isset($row['RoomNo'])) {echo $row['RoomNo']; }?>" readonly>
+               
+       </div>
+       <div class="form-group">
+           <label for="name">Total Payment Recieved </label>
+           <input type="text"  class="form-control" name="pdone" readonly value="<?php if(isset($row['Paymentdone'])) {echo $row['Paymentdone']; }?>">
        </div>
        <div class="form-group">
            <label for="name">Total fee</label>
-           <input type="text"  class="form-control" name="name" id="name" readonly value="10000">
+           <input type="text"  class="form-control" name="name" id="name" readonly value="<?php if(isset($row['TotalPayment'])) {echo $row['TotalPayment']; }?>">
        </div>
        <div class="form-group">
         <label for="name">Pending fee [Pay now]</label>
-        <input type="text"  class="form-control" name="name" id="name" value="1000">
+        <input type="text"  class="form-control" name="cpay">
     </div>
        <div class="text-center">
-       <input class="btn align-center btn-success" value="PAY" ></input>
-       <input class="btn align-center btn-danger" value="Close"></input>
+       <input class="btn align-center btn-success" value="PAY" type="submit" name="pyment" ></input>
+       <a href="students.php" class="btn align-center btn-danger" >Close</a>
     </div>
     </form>
 </div>

@@ -87,6 +87,13 @@ include('header.php');
                             <i class="fas fa-trash"></i>
                             </button>
                         </form>
+
+                        <form action="invoice.php" method="post" class="d-inline">
+                        <input type="hidden" name="id" value='.$row["sid"].'>
+                        <button class="btn btn-danger" type="submit" name="bill">
+                        <i class="fas fa-file-download "></i>
+                        </button>
+                        </form>
                     </td>
                 </tr>
                 ';
@@ -112,6 +119,13 @@ include('header.php');
                             <button class="btn btn-danger" name="delete" type="submit">
                             <i class="fas fa-trash"></i>
                             </button>
+                        </form>
+
+                        <form action="invoice.php" method="post" class="d-inline">
+                        <input type="hidden" name="id" value='.$row["sid"].'>
+                        <button class="btn btn-danger" type="submit" name="bill">
+                        <i class="fas fa-file-download "></i>
+                        </button>
                         </form>
                     </td>
                 </tr>
