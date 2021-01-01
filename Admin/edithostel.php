@@ -1,7 +1,7 @@
 <?php
 define('TITLE', 'Hostel');
 define('PAGE', 'hostel');
-include('header.php'); 
+include('include/header.php'); 
 
 if(isset($_REQUEST['updatehstl'])){
 
@@ -144,4 +144,4 @@ if(isset($_REQUEST['updatehstl'])){
         </form>
     </div>
 
-    <?php include('footer.php') ?>
+    <?php include('include/footer.php') ?>

@@ -1,7 +1,7 @@
 <?php
 define('TITLE', 'Students');
 define('PAGE', 'student');
-include('header.php'); 
+include('include/header.php'); 
 ?> 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -194,4 +194,4 @@ include('header.php');
 </div>
 <!-- /.container-fluid -->
 
-<?php include('footer.php') ?>
+<?php include('include/footer.php') ?>

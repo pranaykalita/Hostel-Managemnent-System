@@ -6,7 +6,7 @@ if(!isset($_SESSION["username"])){
     header("LOCATION: /index.php");
 
 }
-include('database.php');
+include('include/database.php');
 
 if(isset($_POST['bill']))
 {

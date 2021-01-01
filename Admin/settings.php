@@ -2,7 +2,7 @@
 define('TITLE', 'Students');
 define('PAGE', 'student');
 include('header.php');
-include('database.php');
+include('include/header.php'); 
 $msg ="";
 
 if(isset($_REQUEST['addadmin'])){
@@ -104,4 +104,4 @@ if(isset($_REQUEST['addadmin'])){
      echo '<meta http-equiv="refresh" content= "0;URL=?deleted" />'; 
  } 
 ?>
-<?php include('footer.php') ?>
+<?php include('include/footer.php') ?>

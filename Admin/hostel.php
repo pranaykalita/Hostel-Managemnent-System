@@ -1,7 +1,7 @@
 <?php
 define('TITLE', 'Hostel');
 define('PAGE', 'hostel');
-include('header.php'); 
+include('include/header.php'); 
 ?> 
  <!-- Begin Page Content -->
  <div class="container-fluid">
@@ -90,4 +90,4 @@ include('header.php');
 </div>
 <!-- /.container-fluid -->
 
-<?php include('footer.php') ?>
+<?php include('include/footer.php') ?>

@@ -1,7 +1,7 @@
 <?php
 define('TITLE', 'Room');
 define('PAGE', 'room');
-include('header.php'); 
+include('include/header.php'); 
 $msg = '';
 
 if(isset($_REQUEST['adroom'])){
@@ -143,4 +143,4 @@ if(isset($_REQUEST['adroom'])){
             </div>
         </form>
     </div>
-    <?php include('footer.php') ?>
+    <?php include('include/footer.php') ?>

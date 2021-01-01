@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2021 at 09:10 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- Generation Time: Jan 02, 2021 at 12:02 AM
+-- Server version: 10.4.16-MariaDB
+-- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,15 +31,18 @@ CREATE TABLE `admin` (
   `a_login_id` int(11) NOT NULL,
   `a_email` varchar(255) NOT NULL,
   `a_password` varchar(255) NOT NULL,
-  `a_name` varchar(255) NOT NULL
+  `a_name` varchar(255) NOT NULL,
+  `default_admin` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`a_login_id`, `a_email`, `a_password`, `a_name`) VALUES
-(1, 'admin@admin.com', 'admin', 'admin');
+INSERT INTO `admin` (`a_login_id`, `a_email`, `a_password`, `a_name`, `default_admin`) VALUES
+(1, 'admin@admin.com', 'admin', 'admin', 1),
+(2, 'admin@gmail.com', 'admin1234', 'admin2', 0),
+(7, 'admin@gmail.com', 'admin1', 'admin opt', 0);
 
 -- --------------------------------------------------------
 
@@ -97,7 +100,7 @@ CREATE TABLE `room` (
   `rno` mediumint(9) DEFAULT NULL,
   `rprice` int(11) NOT NULL,
   `rtype` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL
+  `status` varchar(255) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -106,14 +109,12 @@ CREATE TABLE `room` (
 
 INSERT INTO `room` (`rid`, `hname`, `rno`, `rprice`, `rtype`, `status`) VALUES
 (122, 'ABC Girls Hostel', 100, 5000, 'Single', '1'),
-(123, 'ABC Girls Hostel', 101, 5000, 'Single', NULL),
-(124, 'ABC Girls Hostel', 102, 5000, 'Single', NULL),
-(125, 'ABC Girls Hostel', 103, 5000, 'Single', NULL),
-(126, 'ABC Girls Hostel', 104, 5000, 'Single', NULL),
-(131, 'ABC Girls Hostel', 200, 2500, 'Double', NULL),
-(132, 'ABC Girls Hostel', 201, 2500, 'Double', NULL),
-(133, 'ABC Girls Hostel', 202, 2500, 'Double', NULL),
-(134, 'ABC Girls Hostel', 203, 2500, 'Double', NULL);
+(123, 'ABC Girls Hostel', 101, 5000, 'Single', '0'),
+(124, 'ABC Girls Hostel', 102, 5000, 'Single', '0'),
+(125, 'ABC Girls Hostel', 103, 5000, 'Single', '0'),
+(126, 'ABC Girls Hostel', 104, 5000, 'Single', '0'),
+(131, 'ABC Girls Hostel', 200, 2500, 'Double', '0'),
+(132, 'ABC Girls Hostel', 201, 2500, 'Double', '0');
 
 -- --------------------------------------------------------
 
@@ -140,6 +141,8 @@ CREATE TABLE `student` (
   `TotalPayment` int(11) NOT NULL,
   `Paymentdone` int(11) NOT NULL,
   `Currentpayment` int(11) NOT NULL,
+  `Cpaydate` date DEFAULT NULL,
+  `Cpaytime` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -147,8 +150,8 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`sid`, `sname`, `phn`, `lgname`, `fname`, `addrs`, `gender`, `course`, `roll`, `hname`, `RoomTyp`, `RoomNo`, `Bfrm`, `Bto`, `bmonth`, `TotalPayment`, `Paymentdone`, `Currentpayment`, `image`) VALUES
-(56, 'ANGEL PRIYA', 2147483647, 'PRANAY KALITA', 'PRAFULLA SAIKIA', 'NAKASARI', 'Female', 'ENGG', 1000001, 'ABC Girls Hostel', 'Single', 100, '2020-12-01', '2021-12-31', 14, 70000, 69200, 5000, 'download.jpg');
+INSERT INTO `student` (`sid`, `sname`, `phn`, `lgname`, `fname`, `addrs`, `gender`, `course`, `roll`, `hname`, `RoomTyp`, `RoomNo`, `Bfrm`, `Bto`, `bmonth`, `TotalPayment`, `Paymentdone`, `Currentpayment`, `Cpaydate`, `Cpaytime`, `image`) VALUES
+(56, 'ANGEL PRIYA', 2147483647, 'PRANAY KALITA', 'PRAFULLA SAIKIA', 'NAKASARI', 'Female', 'ENGG', 1000001, 'ABC Girls Hostel', 'Single', 100, '2020-12-01', '2021-12-31', 14, 70000, 70000, 5000, '2021-01-02', '04:19:53am', 'download.jpg');
 
 --
 -- Indexes for dumped tables
@@ -192,7 +195,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `a_login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `a_login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `course`

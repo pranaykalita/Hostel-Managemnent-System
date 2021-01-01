@@ -1,7 +1,7 @@
 <?php
 define('TITLE', 'Payment');
 define('PAGE', 'payment');
-include('header.php'); 
+include('include/header.php'); 
 $msg = "";
 // set current time
 
@@ -125,4 +125,4 @@ if(isset($_REQUEST['pyment'])){
 </div>
 <?php echo $red; ?>
 
-<?php include('footer.php') ?>
+<?php include('include/footer.php') ?>

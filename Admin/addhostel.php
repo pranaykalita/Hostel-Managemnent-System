@@ -1,5 +1,5 @@
 <?php
-include('header.php'); 
+include('include/header.php'); 
 
 $msg = '';
 
@@ -99,4 +99,4 @@ if(isset($_REQUEST['addhostel'])){
         </form>
     </div>
 
-    <?php include('footer.php')?>
+    <?php include('include/footer.php') ?>

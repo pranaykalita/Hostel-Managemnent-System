@@ -1,5 +1,5 @@
 <?php
-include('header.php'); 
+include('include/header.php'); 
 $msg ='';
 
 if(isset($_REQUEST['AddCourse']))
@@ -57,4 +57,4 @@ if(isset($_REQUEST['AddCourse']))
 </div>
 
 
-<?php include('footer.php')?>
+<?php include('include/footer.php') ?>

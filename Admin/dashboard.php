@@ -1,7 +1,7 @@
 <?php
 define('TITLE', 'Dashboard');
 define('PAGE', 'dashboard');
-include('header.php'); 
+include('include/header.php'); 
 
 
 // total hostel
@@ -204,4 +204,4 @@ $davl = $row[0];
 </div>
 <!-- /.container-fluid -->
 
-<?php include('footer.php') ?>
+<?php include('include/footer.php') ?>

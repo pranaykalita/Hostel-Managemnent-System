@@ -1,7 +1,7 @@
 <?php
 define('TITLE', 'Assign Student');
 define('PAGE', 'assign');
-include('header.php'); 
+include('include/header.php'); 
 
 
 
@@ -290,4 +290,4 @@ if(isset($_REQUEST['assigns']))
         </form>
     </div>
 
-    <?php include('footer.php') ?>
+    <?php include('include/footer.php') ?>
