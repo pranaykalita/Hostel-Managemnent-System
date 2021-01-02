@@ -29,7 +29,7 @@ if(isset($_REQUEST['pyment'])){
         $payment = $_REQUEST['cpay'];
         $final = $curentdone + $payment;
 
-        $sql = "UPDATE `student` SET `Paymentdone`='{$final}' ,`Cpaydate`='{$date}',`Cpaytime`='{$time}' WHERE sid = '{$id}'";
+        $sql = "UPDATE `student` SET `Paymentdone`='{$final}' ,`Currentpayment`='{$payment}',`Cpaydate`='{$date}',`Cpaytime`='{$time}' WHERE sid = '{$id}'";
         $data = $conn->query($sql);
         $msg = "Payment Succesfull";
         $red = "<script>
