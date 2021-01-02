@@ -29,7 +29,7 @@ if(isset($_REQUEST['AddCourse']))
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Add New Hostel</h1>
+    <h1 class="h3 mb-0 text-gray-800">Add New Course</h1>
 </div>
 
 <!-- add stud -->
@@ -50,7 +50,7 @@ if(isset($_REQUEST['AddCourse']))
        </div>
        
        <div class="text-center">
-       <input class="btn align-center btn-success" type="submit" value="ADD HOSTEL" name="AddCourse"></input>
+       <input class="btn align-center btn-success" type="submit" value="ADD COURSE" name="AddCourse"></input>
        <a href="course.php" class="btn align-center btn-danger">Close</a>
     </div>
     </form>

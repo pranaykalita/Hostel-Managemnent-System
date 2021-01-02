@@ -104,7 +104,7 @@ include('include/header.php');
                         <form action="payment.php" method="post" class="d-inline">
                         <input type="hidden" name="id" value='.$row["sid"].'>
                             <button class="btn btn-primary" type="submit" name="pay">
-                            <i class="fas fa-money-bill-alt "></i>
+                            <i class="fas fa-rupee-sign "></i>
                             </button>
                         </form>
                         <form action="studentdetails.php" method="post" class="d-inline">

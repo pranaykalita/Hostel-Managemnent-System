@@ -137,7 +137,7 @@ if(isset($_REQUEST['adroom'])){
                 <input
                     class="btn align-center btn-success"
                     type="submit"
-                    value="ADD HOSTEL"
+                    value="ADD ROOM"
                     name="adroom"></input>
                 <a href="room.php" class="btn align-center btn-danger">Close</a>
             </div>

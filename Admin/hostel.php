@@ -29,8 +29,6 @@ include('include/header.php');
             <th>capacity</th>
             <th>single|Double</th>
             <th>Room</th>
-            <th>Room Avl.(single|double)</th>
-            <th>Student</th>
             <th>Action</th>
         </thead>
         <tbody class="text-center ">
@@ -49,8 +47,6 @@ include('include/header.php');
                 <td>'.$row["hcap"].'</td>
                 <td>'.$row["sroom"].'/'.$row["droom"].'</td>
                 <td>'.$totalroom.'</td>
-                <td>abc</td>
-                <td>abc</td>
                 
                 <td>
                     <form action="edithostel.php" method="post" class="d-inline">

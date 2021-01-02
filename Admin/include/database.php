@@ -2,9 +2,9 @@
 <?php
 
 $servername = "localhost";
-$Server_username = "root";
-$password = "";
-$dbname = "hms_p";
+$Server_username = "u708877553_prafulla";
+$password = "Abcd@1234";
+$dbname = "u708877553_hostel";
 
 $conn = new mysqli($servername,$Server_username,$password,$dbname);
 

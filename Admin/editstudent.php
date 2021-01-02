@@ -37,7 +37,7 @@ if(isset($_REQUEST['assigns']))
         $rno = $_REQUEST['rno'];
         $hname = $_REQUEST['hst'];
         $rType = $_REQUEST['rtype'];
-        $RoomN = $_REQUEST['roomno'];
+        $RoomN = $_REQUEST['RoomNo'];
 
         $Bfrm = $_REQUEST['bmonthFr'].'-01';
         $Bto = $_REQUEST['bmonthTo'] .'-31';
@@ -246,21 +246,14 @@ if(isset($_REQUEST['assigns']))
 
             <div class="form-group">
                 <label for="roomno">Room No</label>
-                <select
+                <input
                     type="number"
                     name="roomno"
                     class="form-control"
                     id=""
                     value="<?php if(isset($row['RoomNo'])) {echo $row['RoomNo']; }?>"
                     readonly="readonly">
-                    <?php
-                $sql = "SELECT * FROM `room` where status = '0' or status = '2'";
-                $data = $conn->query($sql);
-                while ($row2 = $data->fetch_assoc()){
-                echo '<option name="cname">'.$row2["rno"].'</option>';
-                } 
-                ?>
-                </select>
+                    
             </div>
             <div class="form-group">
                 <label for="bmonthFr">Book Month</label><br>

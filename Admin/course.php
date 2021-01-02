@@ -36,12 +36,7 @@ include('include/header.php');
                 <td>'.$row['cname'].'</td>
                 <td>'.$row['cyear'].'</td>
                 <td>
-                <form action="edithostel.php" method="post" class="d-inline">
-                <input type="hidden" name="id" value='.$row["cid"].'>
-                    <button class="btn btn-info">
-                    <i class="fas fa-edit "></i>
-                    </button>
-                    </form>
+               
 
                     <form action="" method="post" class="d-inline">
                     <input type="hidden" name="id" value='.$row["cid"].'>
