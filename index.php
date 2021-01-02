@@ -105,22 +105,22 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     </div>
     <div class="w3-col l3 m6 w3-light-grey w3-container w3-padding-16">
       <h3>24*7 Electricity</h3>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      
     </div>
 
     <div class="w3-col l3 m6 w3-grey w3-container w3-padding-16">
       <h3>24*7 Water supply</h3>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+     
     </div>
 
     <div class="w3-col l3 m6 w3-dark-grey w3-container w3-padding-16">
       <h3>Wifi facility</h3>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+     
     </div>
 
     <div class="w3-col l3 m6 w3-black w3-container w3-padding-16">
       <h3>Low cost</h3>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+    
     </div>
   </div>
 
@@ -136,7 +136,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
           <li class="w3-black w3-xlarge w3-padding-32">Single Room</li>
           
           <li class="w3-padding-16">
-            <h2 class="w3-wide">$ 7000</h2>
+            <h2 class="w3-wide">₹ 7000</h2>
             <span class="w3-opacity">per month</span>
           </li>
           <li class="w3-light-grey w3-padding-24">
@@ -150,7 +150,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
         <li class="w3-dark-grey w3-xlarge w3-padding-32">Double Room</li>
       
         <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 3500</h2>
+          <h2 class="w3-wide">₹ 3500</h2>
           <span class="w3-opacity">per month</span>
         </li>
         <li class="w3-light-grey w3-padding-24">
@@ -164,7 +164,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
         <li class="w3-black w3-xlarge w3-padding-32">Triple Room</li>
         
         <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 2500</h2>
+          <h2 class="w3-wide">₹ 2500</h2>
           <span class="w3-opacity">per month</span>
         </li>
         <li class="w3-light-grey w3-padding-24">
@@ -174,48 +174,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     </div>
   </div>
 
-  <!-- Grid -->
-  <div class="w3-row-padding" id="about">
-    <div class="w3-center w3-padding-64">
-      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Who We Are</span>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <div class="w3-card-4">
-        <img src="/w3images/team1.jpg" alt="John" style="width:100%">
-        <div class="w3-container">
-          <h3>Jane Doe</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <div class="w3-card-4">
-        <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
-        <div class="w3-container">
-          <h3>Mike Ross</h3>
-          <p class="w3-opacity">Art Director</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <div class="w3-card-4">
-        <img src="/w3images/team3.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>John Doe</h3>
-          <p class="w3-opacity">Designer</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
 
   <!-- Contact -->
   <div class="w3-center w3-padding-64" id="contact">
@@ -247,7 +206,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 <!-- Footer -->
 
 <footer class="w3-container w3-padding-32 w3-light-grey w3-center">
-    <h4>L&C Boys Hostel</h4>
+    <h4>L&C Hostels</h4>
   <a href="#" class="w3-button w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <div class="w3-xlarge w3-section">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
