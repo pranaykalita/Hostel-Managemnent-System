@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2021 at 12:02 AM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Generation Time: Feb 18, 2021 at 04:03 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,9 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`a_login_id`, `a_email`, `a_password`, `a_name`, `default_admin`) VALUES
-(1, 'admin@admin.com', 'admin', 'admin', 1),
-(2, 'admin@gmail.com', 'admin1234', 'admin2', 0),
-(7, 'admin@gmail.com', 'admin1', 'admin opt', 0);
+(1, 'admin@admin.com', 'admin', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -85,8 +83,7 @@ CREATE TABLE `hostel` (
 --
 
 INSERT INTO `hostel` (`hid`, `hname`, `hcap`, `sroom`, `droom`, `sroomprice`, `droomprice`) VALUES
-(7, 'ABC Girls Hostel', 17, 5, 6, 5000, 2500),
-(8, 'ABC Boys Hostel', 25, 5, 10, 5000, 10);
+(7, 'ABC Girls Hostel', 17, 5, 6, 5000, 2500);
 
 -- --------------------------------------------------------
 
@@ -108,13 +105,14 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`rid`, `hname`, `rno`, `rprice`, `rtype`, `status`) VALUES
-(122, 'ABC Girls Hostel', 100, 5000, 'Single', '1'),
+(122, 'ABC Girls Hostel', 100, 5000, 'Single', '0'),
 (123, 'ABC Girls Hostel', 101, 5000, 'Single', '0'),
 (124, 'ABC Girls Hostel', 102, 5000, 'Single', '0'),
 (125, 'ABC Girls Hostel', 103, 5000, 'Single', '0'),
 (126, 'ABC Girls Hostel', 104, 5000, 'Single', '0'),
 (131, 'ABC Girls Hostel', 200, 2500, 'Double', '0'),
-(132, 'ABC Girls Hostel', 201, 2500, 'Double', '0');
+(132, 'ABC Girls Hostel', 201, 2500, 'Double', '0'),
+(135, 'ABC Girls Hostel', 122, 5000, 'Single', '0');
 
 -- --------------------------------------------------------
 
@@ -145,13 +143,6 @@ CREATE TABLE `student` (
   `Cpaytime` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `student`
---
-
-INSERT INTO `student` (`sid`, `sname`, `phn`, `lgname`, `fname`, `addrs`, `gender`, `course`, `roll`, `hname`, `RoomTyp`, `RoomNo`, `Bfrm`, `Bto`, `bmonth`, `TotalPayment`, `Paymentdone`, `Currentpayment`, `Cpaydate`, `Cpaytime`, `image`) VALUES
-(56, 'ANGEL PRIYA', 2147483647, 'PRANAY KALITA', 'PRAFULLA SAIKIA', 'NAKASARI', 'Female', 'ENGG', 1000001, 'ABC Girls Hostel', 'Single', 100, '2020-12-01', '2021-12-31', 14, 70000, 70000, 5000, '2021-01-02', '04:19:53am', 'download.jpg');
 
 --
 -- Indexes for dumped tables
@@ -207,19 +198,19 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `hostel`
 --
 ALTER TABLE `hostel`
-  MODIFY `hid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `hid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `rid` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `rid` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
