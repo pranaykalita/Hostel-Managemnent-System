@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)]
 
-#Screenshots
+## Screenshots
 
 ![alt text](/screenshot/dashboard.png)
 ![alt text](/screenshot/rooms.png)
