@@ -1,4 +1,5 @@
 <?php
+define('PAGE', 'Add Hostel');
 include('include/header.php'); 
 $msg ='';
 
