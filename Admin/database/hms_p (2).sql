@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2021 at 04:03 PM
+-- Generation Time: Feb 24, 2021 at 07:39 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -50,17 +50,16 @@ INSERT INTO `admin` (`a_login_id`, `a_email`, `a_password`, `a_name`, `default_a
 
 CREATE TABLE `course` (
   `cid` int(11) NOT NULL,
-  `cname` varchar(255) NOT NULL,
-  `cyear` int(11) NOT NULL
+  `cname` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`cid`, `cname`, `cyear`) VALUES
-(6, 'ENGG', 8),
-(7, 'IT', 3);
+INSERT INTO `course` (`cid`, `cname`) VALUES
+(6, 'ENGG'),
+(7, 'IT');
 
 -- --------------------------------------------------------
 
@@ -83,7 +82,7 @@ CREATE TABLE `hostel` (
 --
 
 INSERT INTO `hostel` (`hid`, `hname`, `hcap`, `sroom`, `droom`, `sroomprice`, `droomprice`) VALUES
-(7, 'ABC Girls Hostel', 17, 5, 6, 5000, 2500);
+(12, 'Jbh1', 15, 5, 5, 500, 1000);
 
 -- --------------------------------------------------------
 
@@ -105,14 +104,10 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`rid`, `hname`, `rno`, `rprice`, `rtype`, `status`) VALUES
-(122, 'ABC Girls Hostel', 100, 5000, 'Single', '0'),
-(123, 'ABC Girls Hostel', 101, 5000, 'Single', '0'),
-(124, 'ABC Girls Hostel', 102, 5000, 'Single', '0'),
-(125, 'ABC Girls Hostel', 103, 5000, 'Single', '0'),
-(126, 'ABC Girls Hostel', 104, 5000, 'Single', '0'),
-(131, 'ABC Girls Hostel', 200, 2500, 'Double', '0'),
-(132, 'ABC Girls Hostel', 201, 2500, 'Double', '0'),
-(135, 'ABC Girls Hostel', 122, 5000, 'Single', '0');
+(138, 'Jbh1', 10, 1000, 'Single', '0'),
+(139, 'Jbh1', 20, 2000, 'Double', '0'),
+(140, 'Jbh1', 11, 500, 'Single', '0'),
+(141, 'Jbh1', 22, 1000, 'Double', '0');
 
 -- --------------------------------------------------------
 
@@ -198,19 +193,19 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `hostel`
 --
 ALTER TABLE `hostel`
-  MODIFY `hid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `hid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `rid` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `rid` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
